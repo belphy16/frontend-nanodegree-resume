@@ -51,25 +51,25 @@ bio.display();
 
 var education = {
     "schools": [{
-        "schoolName": "Sahrdaya College Of Engineering",
-        "schoolDegree": "Bachelor of Technology",
-        "schoolDates": "2016",
+        "Name": "Sahrdaya College Of Engineering",
+        "Degree": "Bachelor of Technology",
+        "Dates": "2016",
         "location": "kodakara,kerala",
-        "schoolMajor": "Electronics And Communication",
+        "Majors": "Electronics And Communication",
         "link": "http://sahrdaya.in/",
     }, {
-        "schoolName": "Emmanuel's H.S.S",
-        "schoolDegree": "Higher Secondary",
-        "schoolDates": "2011",
+        "Name": "Emmanuel's H.S.S",
+        "Degree": "Higher Secondary",
+        "Dates": "2011",
         "location": "kothanalloor,kerala",
-        "schoolMajor": "Biology-Maths",
+        "Majors": "Biology-Maths",
         "link": "http://.nic.in/",
     }],
     "courses": [{
-        "onlineTitle": "Front-End Web Developer, Naanodegree",
-        "onlineSchool": "Udacity",
-        "onlineDates": "2016",
-        "onlineURL": "http://udacity.com",
+        "Title": "Front-End Web Developer, Naanodegree",
+        "School": "Udacity",
+        "Dates": "2016",
+        "URL": "http://udacity.com",
     }]
 };
 
@@ -77,19 +77,19 @@ education.display = function() {
     for (school = 0; school < education.schools.length; school++) {
         $("#education").append(HTMLschoolStart);
 
-        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].schoolName).replace("#", education.schools[school].link) + HTMLschoolDegree.replace("%data%", education.schools[school].schoolDegree));
+        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].Name).replace("#", education.schools[school].link) + HTMLschoolDegree.replace("%data%", education.schools[school].Degree));
 
-        $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].schoolDates));
+        $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].Dates));
         $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
-        $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].schoolMajor));
+        $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].Majors));
     }
     $("#education").append(HTMLonlineClasses);
     for (course = 0; course < education.courses.length; course++) {
         $("#education").append(HTMLschoolStart);
-        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.courses[course].onlineTitle).replace("#", education.courses[course].onlineURL) + HTMLonlineSchool.replace("%data%", education.courses[course].onlineSchool));
+        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.courses[course].Title).replace("#", education.courses[course].URL) + HTMLonlineSchool.replace("%data%", education.courses[course].School));
 
-        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.courses[course].onlineDates));
-        $(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.courses[course].onlineURL));
+        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.courses[course].Dates));
+        $(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.courses[course].URL));
     }
 
 };
@@ -134,19 +134,19 @@ var projects = {
         "title": "Gesture controlled robot",
         "dates": "2014",
         "description": "arduino based programming",
-        "images": "images/3.jpg"
+        "images": ["images/3.jpg"]
 
 
     }, {
         "title": "Self stabilising platform",
         "dates": " 2015",
         "description": "Embedded system",
-        "images": "images/2.jpg"
+        "images": ["images/2.jpg"]
     }, {
         "title": "Automatic accident rescue system",
         "dates": "2016",
         "description": "Embedded platform with many technologies incorporated",
-        "images": "images/4.jpg"
+        "images": ["images/4.jpg"]
 
 
     }]
@@ -160,11 +160,11 @@ projects.display = function() {
         $(".project-entry:last").append(formattedprojectDates);
         var formattedprojectDescription = HTMLprojectDescription.replace("%data%", project.description);
         $(".project-entry:last").append(formattedprojectDescription);
-        if (project.images.length > 0) {
-            var formattedprojectimage = HTMLprojectImage.replace("%data%", project.images);
-            $(".project-entry:last").append(formattedprojectimage);
-        }
-    });
+        project.images.forEach(function(image){
+           var formattedprojectImage = HTMLprojectImage.replace("%data%", image);
+           $(".project-entry:last").append(formattedprojectImage);
+       });
+   });
 };
 projects.display();
 $("#mapDiv").append(googleMap);
