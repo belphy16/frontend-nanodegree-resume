@@ -12,6 +12,7 @@ h6 {
   padding:0;
   margin:0;
   font-family: "Roboto", sans-serif;
+  font-weight:bold;
 }
 
 .clear-fix {
@@ -116,20 +117,23 @@ a {
   font-weight: bold;
   color: #fff;
 }
+.light-gray{
+  background-color:#e6f7ff;
+}
 
 .gray {
-  background-color: #f3f3f3;
+  background-color:#b3ffe0;
   padding-bottom: 10px;
   clear:both;
 }
 
 .dark-gray {
-  background-color: #4a4a4a;
+  background-color: #001a33;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #001a33;
 }
 
 .flex-box {

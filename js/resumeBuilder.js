@@ -2,10 +2,10 @@ var bio = {
     "name": "BELPHY",
     "role": "Web Developer",
     "contacts": {
-        "mobile": "9008007001",
-        "email": "belphy16@gmail.com",
-        "github": "belphy16",
-        "location": "kerala"
+        "mobile": "- 9008007001",
+        "email": "- belphy16@gmail.com",
+        "github": "-belphy16",
+        "location": "-kerala"
     },
     "welcomeMessage": "Miles to go before I sleep",
     "skills": ["learner", "Team player", "adaptability", "programming", "leadership"],
@@ -34,6 +34,8 @@ bio.display = function() {
     $('#topContacts').append(formattedGithub);
     $('#footerContacts').append(formattedGithub);
     $('#header').append(formattedWelcomeMsg);
+    $('#footerContacts').append(formattedLocation);
+    $('#topContacts').append(formattedLocation);
 
     //if (bio.skills.length > 0) {
     //var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
@@ -96,47 +98,35 @@ education.display();
 //$("#main").prepend(education);
 
 var work = {
-        "jobs": [{
-            "employer": "Infosys",
-            "title": "Systems Engineer",
-            "datesWorked": "January 2017 - Future",
-            "description": "As a Systems Engineer",
-            "location": "Mysore"
-        }, {
-            "employer": "Air-force",
-            "title": "Technical Engineer",
-            "datesWorked": "2017-future",
-            "description": "As a Technical Engineer",
-            "location": "Delhi"
-        }]
-    }
-    //$("#main").prepend(work);
-function displayWork() {
-
-    if (work.jobs.length > 0) {
-
+    "jobs": [{
+        "employer": "Infosys",
+        "title": "Systems Engineer",
+        "datesWorked": "January 2017 - Future",
+        "description": "As a Systems Engineer",
+        "location": "Mysore"
+    }, {
+        "employer": "Air-force",
+        "title": "Technical Engineer",
+        "datesWorked": "2017-future",
+        "description": "As a Technical Engineer",
+        "location": "Delhi"
+    }]
+};
+//$("#main").prepend(work);
+work.display = function() {
+    work.jobs.forEach(function(job) {
         $("#workExperience").append(HTMLworkStart);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+        var formattedworkDates = HTMLworkDates.replace("%data%", job.dates);
+        var formattedworkLocation = HTMLworkLocation.replace("%data%", job.location);
+        var formattedworkDescription = HTMLworkDescription.replace("%data%", job.description);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle + formattedworkDates + formattedworkLocation + formattedworkDescription;
+        $(".work-entry:last").append(formattedEmployerTitle);
 
-        for (i in work.jobs) {
-            var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-            var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
-            var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
-            var formattedDatesWorked = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
-            var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
-
-            var formattedEmployerWorkTitle = formattedEmployer + formattedWorkTitle;
-
-            $(".work-entry:last").append(formattedEmployerWorkTitle);
-            $(".work-entry:last").append(formattedWorkLocation);
-            $(".work-entry:last").append(formattedDatesWorked);
-            $(".work-entry:last").append(formattedWorkDescription);
-        }
-
-    }
-
-}
-
-displayWork();
+    });
+};
+work.display();
 
 
 var projects = {
@@ -144,39 +134,36 @@ var projects = {
         "title": "Gesture controlled robot",
         "dates": "2014",
         "description": "arduino based programming",
-        "images": [
-            "http://placehold.it/350x150", "http://placehold.it/350x150"
-        ]
+        "images": "images/3.jpg"
+
+
     }, {
         "title": "Self stabilising platform",
         "dates": " 2015",
         "description": "Embedded system",
-        "images": ["http://placehold.it/350x150", "http://placehold.it/350x150"]
+        "images": "images/2.jpg"
     }, {
         "title": "Automatic accident rescue system",
         "dates": "2016",
         "description": "Embedded platform with many technologies incorporated",
-        "images": [
-            "http://placehold.it/350x150", "http://placehold.it/350x150"
-        ]
+        "images": "images/4.jpg"
+
+
     }]
 };
 projects.display = function() {
-    for (project in projects.projects) {
+    projects.projects.forEach(function(project) {
         $("#projects").append(HTMLprojectStart);
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-        $(".project-entry:last").append(formattedTitle);
-        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-        $(".project-entry:last").append(formattedDates);
-        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-        $(".project-entry:last").append(formattedDescription);
-
-        if (projects.projects[project].images.length > 0) {
-            for (image in projects.projects[project].images) {
-                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-                $(".project-entry:last").append(formattedImage);
-            }
-        };
-    }
+        var formattedprojectTitle = HTMLprojectTitle.replace("%data%", project.title);
+        $(".project-entry:last").append(formattedprojectTitle);
+        var formattedprojectDates = HTMLprojectDates.replace("%data%", project.dates);
+        $(".project-entry:last").append(formattedprojectDates);
+        var formattedprojectDescription = HTMLprojectDescription.replace("%data%", project.description);
+        $(".project-entry:last").append(formattedprojectDescription);
+        if (project.images.length > 0) {
+            var formattedprojectimage = HTMLprojectImage.replace("%data%", project.images);
+            $(".project-entry:last").append(formattedprojectimage);
+        }
+    });
 };
-projects.display()
+projects.display();
