@@ -101,13 +101,13 @@ var work = {
     "jobs": [{
         "employer": "Infosys",
         "title": "Systems Engineer",
-        "datesWorked": "January 2017 - Future",
+        "dates": "January 2017 - Future",
         "description": "As a Systems Engineer",
         "location": "Mysore"
     }, {
         "employer": "Air-force",
         "title": "Technical Engineer",
-        "datesWorked": "2017-future",
+        "dates": "2017-future",
         "description": "As a Technical Engineer",
         "location": "Delhi"
     }]
@@ -167,3 +167,4 @@ projects.display = function() {
     });
 };
 projects.display();
+$("#mapDiv").append(googleMap);
