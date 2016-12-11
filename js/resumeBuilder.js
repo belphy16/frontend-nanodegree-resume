@@ -9,14 +9,14 @@ var bio = {
     },
     "welcomeMessage": "Miles to go before I sleep",
     "skills": ["learner", "Team player", "adaptability", "programming", "leadership"],
-    "bioPic": "images/download.jpg"
+    "biopic": "images/download.jpg"
 };
 
 bio.display = function() {
 
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+    var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
     var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
@@ -51,25 +51,25 @@ bio.display();
 
 var education = {
     "schools": [{
-        "Name": "Sahrdaya College Of Engineering",
-        "Degree": "Bachelor of Technology",
-        "Dates": "2016",
+        "name": "Sahrdaya College Of Engineering",
+        "degree": "Bachelor of Technology",
+        "dates": "2016",
         "location": "kodakara,kerala",
-        "Majors": "Electronics And Communication",
+        "majors": "Electronics And Communication",
         "link": "http://sahrdaya.in/",
     }, {
-        "Name": "Emmanuel's H.S.S",
-        "Degree": "Higher Secondary",
-        "Dates": "2011",
+        "name": "Emmanuel's H.S.S",
+        "degree": "Higher Secondary",
+        "dates": "2011",
         "location": "kothanalloor,kerala",
-        "Majors": "Biology-Maths",
+        "majors": "Biology-Maths",
         "link": "http://.nic.in/",
     }],
     "courses": [{
-        "Title": "Front-End Web Developer, Naanodegree",
-        "School": "Udacity",
-        "Dates": "2016",
-        "URL": "http://udacity.com",
+        "title": "Front-End Web Developer, Naanodegree",
+        "school": "Udacity",
+        "dates": "2016",
+        "url": "http://udacity.com",
     }]
 };
 
@@ -77,19 +77,19 @@ education.display = function() {
     for (school = 0; school < education.schools.length; school++) {
         $("#education").append(HTMLschoolStart);
 
-        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].Name).replace("#", education.schools[school].link) + HTMLschoolDegree.replace("%data%", education.schools[school].Degree));
+        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name).replace("#", education.schools[school].link) + HTMLschoolDegree.replace("%data%", education.schools[school].degree));
 
-        $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].Dates));
+        $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));
         $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
-        $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].Majors));
+        $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].majors));
     }
     $("#education").append(HTMLonlineClasses);
     for (course = 0; course < education.courses.length; course++) {
         $("#education").append(HTMLschoolStart);
-        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.courses[course].Title).replace("#", education.courses[course].URL) + HTMLonlineSchool.replace("%data%", education.courses[course].School));
+        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.courses[course].title).replace("#", education.courses[course].URL) + HTMLonlineSchool.replace("%data%", education.courses[course].school));
 
-        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.courses[course].Dates));
-        $(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.courses[course].URL));
+        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.courses[course].dates));
+        $(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.courses[course].url));
     }
 
 };
