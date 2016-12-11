@@ -55,15 +55,15 @@ var education = {
         "degree": "Bachelor of Technology",
         "dates": "2016",
         "location": "kodakara,kerala",
-        "majors": "Electronics And Communication",
-        "link": "http://sahrdaya.in/",
+        "majors": ["Electronics And Communication"],
+        "url": "http://sahrdaya.in/",
     }, {
         "name": "Emmanuel's H.S.S",
         "degree": "Higher Secondary",
         "dates": "2011",
         "location": "kothanalloor,kerala",
         "majors": "Biology-Maths",
-        "link": "http://.nic.in/",
+        "url": "http://.nic.in/",
     }],
     "courses": [{
         "title": "Front-End Web Developer, Naanodegree",
@@ -77,7 +77,7 @@ education.display = function() {
     for (school = 0; school < education.schools.length; school++) {
         $("#education").append(HTMLschoolStart);
 
-        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name).replace("#", education.schools[school].link) + HTMLschoolDegree.replace("%data%", education.schools[school].degree));
+        $(".education-entry:last").append(HTMLschoolName.replace("%data%", education.schools[school].name).replace("#", education.schools[school].url) + HTMLschoolDegree.replace("%data%", education.schools[school].degree));
 
         $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school].dates));
         $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[school].location));
