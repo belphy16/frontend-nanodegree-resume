@@ -62,10 +62,10 @@ var education = {
         "degree": "Higher Secondary",
         "dates": "2011",
         "location": "kothanalloor,kerala",
-        "majors": "Biology-Maths",
+        "majors": ["Biology-Maths"],
         "url": "http://.nic.in/",
     }],
-    "courses": [{
+    "onlineCourses": [{
         "title": "Front-End Web Developer, Naanodegree",
         "school": "Udacity",
         "dates": "2016",
@@ -84,12 +84,12 @@ education.display = function() {
         $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school].majors));
     }
     $("#education").append(HTMLonlineClasses);
-    for (course = 0; course < education.courses.length; course++) {
+    for (course = 0; course < education.onlineCourses.length; course++) {
         $("#education").append(HTMLschoolStart);
-        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.courses[course].title).replace("#", education.courses[course].URL) + HTMLonlineSchool.replace("%data%", education.courses[course].school));
+        $(".education-entry:last").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title).replace("#", education.onlineCourses[course].URL) + HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school));
 
-        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.courses[course].dates));
-        $(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.courses[course].url));
+        $(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates));
+        $(".education-entry:last").append(HTMLonlineURL.replace("%data%", education.onlineCourses[course].url));
     }
 
 };
